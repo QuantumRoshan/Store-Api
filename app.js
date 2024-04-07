@@ -7,8 +7,8 @@ const app = express()
 const connectDb = require('./db/connect')
 const products = require('./routes/products')
 
-const middlwearNotfound = require('./middleware/not-found')
-const middlwearErrorHandeller = require('./middleware/error-handler')
+const middlewareNotfound = require('./middleware/not-found')
+const middlewareErrorHandler = require('./middleware/error-handler')
 
 const port = process.env.PORT || 3000
 
@@ -23,8 +23,8 @@ app.get('/', (req, res) => {
 })
 app.use('/api/v1/products', products)
 
-app.use(middlwearNotfound)
-app.use(middlwearErrorHandeller)
+app.use(middlewareNotfound)
+app.use(middlewareErrorHandler)
 
 const start = async () => {
   try {
